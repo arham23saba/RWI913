@@ -1,0 +1,28 @@
+Mult-level inheritance
+package com.jsp.multilevel;
+
+public class A {
+	public void play() {
+		System.out.println("Playing football");
+	}
+}
+**********************
+package com.jsp.multilevel;
+
+public class B extends A{
+
+	@Override
+	public void play() {
+		System.out.println("Playing cricket");
+	}
+}
+***************
+package com.jsp.multilevel;
+
+public class C extends B{
+public static void main(String[] args) {
+	C c = new C();
+	c.play();
+	
+}
+}
