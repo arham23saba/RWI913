@@ -1,0 +1,162 @@
+Aggrgation-Students
+*******************
+package p2;
+
+import java.util.List;
+
+public class Department {
+	
+	private String deptName;
+	private List<Student> students;
+	
+	public Department(String deptName,List<Student>students)
+	{
+		this.deptName=deptName;
+		this.students=students;
+	}
+
+	 public List<Student> getStudents() {
+	      return students; 
+	    }
+
+	    public void addStudent(Student student)
+	    {
+	        students.add(student);
+	    }
+	
+
+}
+
+package p2;
+
+import java.util.List;
+
+public class Institute {
+	private String instName;
+	private List<Department> departments;
+	
+	public Institute(String instName,List<Department>departments)
+	{
+		this.instName=instName;
+		this.departments=departments;
+	}
+	public void addDepartment(Department department)
+	{
+		departments.add(department);
+	}
+	
+	public int getTotStud()
+	{
+		int noOfStud=0;
+		List<Student>students=null;
+		
+		for(Department dept:departments) {
+			students = dept.getStudents();
+			
+			for(Student s:students)
+			{
+				noOfStud++;
+			}
+		}
+		return noOfStud;
+	}
+
+}
+
+package p2;
+
+public class Student {
+
+	private String name;
+    private int rollno;
+
+
+public Student(String name,int rollno)
+{
+	this.name=name;
+	this.rollno=rollno;
+ }
+
+public int getRollno() {
+	return rollno;
+}
+
+public String getName() {
+	return name;
+}
+
+ 
+}
+
+
+package P1;
+import java.util.ArrayList;
+import java.util.List;
+
+import p2.*;
+
+public class Aggregation {
+	
+	public static void main(String[] args) {
+		
+		Student s1 = new Student("Rahul",1);
+		Student s2 = new Student("Adyan",2);
+		Student s3 = new Student("Izaan",3);
+		
+		List<Student> cse_stud = new ArrayList<Student>();
+		cse_stud.add(s1);
+		cse_stud.add(s2);
+		
+		List<Student> ee_stud = new ArrayList<Student>();
+		
+		ee_stud.add(s3);
+		
+		Department CSE = new Department("CSE", cse_stud);
+        Department EE = new Department("EE", ee_stud);
+		
+		 List<Department> departments = new ArrayList<Department>();
+	        departments.add(CSE);
+	        departments.add(EE);
+	        
+	        Institute institute = new Institute("BITS", departments);
+	        
+	        System.out.print("Total students in institute: ");
+	        
+	        System.out.print(institute.getTotStud());
+	}
+
+}
+
+Array
+*****
+import java.io.*;
+
+class GFG {
+    public static void main (String[] args) {
+       
+      int [] arr=new int [4];
+      
+      System.out.println("Array Size:"+arr.length);
+    }
+}
+
+
+Array2
+******
+class GFG {
+    public static void main(String[] args)
+    {
+        // declares an Array of integers.
+        int[] arr;
+
+        arr = new int[5];
+        arr[0] = 10;
+        arr[1] = 20;
+        arr[2] = 30;
+        arr[3] = 40;
+        arr[4] = 50;
+        
+         for (int i = 0; i < arr.length; i++)
+            System.out.println("Element at index " + i + " : " + arr[i]);
+    }
+}
